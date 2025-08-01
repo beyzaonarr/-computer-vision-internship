@@ -40,7 +40,6 @@ def order_points(pts):
 
 pts1 = order_points(document_corners)
 
-# Hedef genişlik ve yükseklik (düz olacak hali)
 width, height = 400, 600
 pts2 = np.float32([
     [0, 0],
@@ -49,13 +48,10 @@ pts2 = np.float32([
     [0, height - 1]
 ])
 
-# Perspektif dönüşüm matrisi
 matrix = cv2.getPerspectiveTransform(pts1, pts2)
 
-# Perspektif düzeltme uygulama
 warped = cv2.warpPerspective(orig, matrix, (width, height))
 
-# Sonuçları göster
 cv2.imshow("Original", resize_img)
 cv2.imshow("Corrected Perspective", warped)
 cv2.imwrite("perspective.png",warped)
