@@ -12,9 +12,9 @@ def load_images_from_folder(folder):
     return images
 
 flaws = load_images_from_folder("flaws/")
-imperfects = load_images_from_folder("imperfects/")
+flawless = load_images_from_folder("flawless/")
 
-template = np.mean(flaws, axis = 0).astype(np.uint8)
+template = np.mean(flawless, axis = 0).astype(np.uint8)
 cv2.imshow("template", template)
 cv2.imwrite("template.jpg", template)
 cv2.waitKey(0)
